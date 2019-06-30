@@ -91,6 +91,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
+    func assemple() {
+        
+    }
 }
 

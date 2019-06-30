@@ -7,7 +7,12 @@
 //
 
 import Foundation
-
-class LeaguesViewController {
+import UIKit
+class LeaguesViewController : UIViewController {
     
+    private var leaguesViewModel: LeaguesViewModel!
+    
+    func initialize(leaguesViewModel:LeaguesViewModel) {
+        self.leaguesViewModel = leaguesViewModel
+    }
 }

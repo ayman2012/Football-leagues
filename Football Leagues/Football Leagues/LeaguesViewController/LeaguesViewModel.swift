@@ -10,4 +10,9 @@ import Foundation
 
 class LeaguesViewModel {
     
+    private let leaguesRepository: LeaguesRepository!
+    init(repository: LeaguesRepository) {
+        self.leaguesRepository = repository
+    }
+    
 }

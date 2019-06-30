@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1449EE7A69098CB850EA6EA8 /* Pods_Football_Leagues.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17932AA27C5EBC2BBF5A1F56 /* Pods_Football_Leagues.framework */; };
 		6CC3B3F9ED5906BF24AD6662 /* Pods_Football_LeaguesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEC7F8F0ED39EAEAA8FD40BA /* Pods_Football_LeaguesTests.framework */; };
+		8F12B6D922C8E0B600AD8B8A /* LeaguesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F12B6D822C8E0B600AD8B8A /* LeaguesRepository.swift */; };
+		8F12B6DB22C8E25100AD8B8A /* ApplicationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F12B6DA22C8E25100AD8B8A /* ApplicationAssembly.swift */; };
+		8F12B6DD22C8E2C900AD8B8A /* LeaguesAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F12B6DC22C8E2C900AD8B8A /* LeaguesAssembler.swift */; };
 		8F45496022C8D67E0077342D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F45495F22C8D67E0077342D /* AppDelegate.swift */; };
 		8F45496822C8D67E0077342D /* Football_Leagues.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8F45496622C8D67E0077342D /* Football_Leagues.xcdatamodeld */; };
 		8F45496A22C8D6810077342D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F45496922C8D6810077342D /* Assets.xcassets */; };
@@ -43,6 +46,9 @@
 		17932AA27C5EBC2BBF5A1F56 /* Pods_Football_Leagues.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Football_Leagues.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2156141EBD695A81B8C42219 /* Pods-Football LeaguesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Football LeaguesTests.debug.xcconfig"; path = "Target Support Files/Pods-Football LeaguesTests/Pods-Football LeaguesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		85309169C7AF6BFCB403107B /* Pods-Football LeaguesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Football LeaguesUITests.debug.xcconfig"; path = "Target Support Files/Pods-Football LeaguesUITests/Pods-Football LeaguesUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8F12B6D822C8E0B600AD8B8A /* LeaguesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesRepository.swift; sourceTree = "<group>"; };
+		8F12B6DA22C8E25100AD8B8A /* ApplicationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationAssembly.swift; sourceTree = "<group>"; };
+		8F12B6DC22C8E2C900AD8B8A /* LeaguesAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesAssembler.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		8F45495C22C8D67E0077342D /* Football Leagues.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Football Leagues.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F45495F22C8D67E0077342D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F45496722C8D67E0077342D /* Football_Leagues.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Football_Leagues.xcdatamodel; sourceTree = "<group>"; };
@@ -133,6 +139,7 @@
 				8F45495F22C8D67E0077342D /* AppDelegate.swift */,
 				8F45499122C8D9180077342D /* LeaguesViewController */,
 				8F45499022C8D83F0077342D /* Resources */,
+				8F12B6DA22C8E25100AD8B8A /* ApplicationAssembly.swift */,
 			);
 			path = "Football Leagues";
 			sourceTree = "<group>";
@@ -172,7 +179,9 @@
 				8F45499222C8D9A30077342D /* Leagues.storyboard */,
 				8F45499422C8D9B70077342D /* LeaguesViewController.swift */,
 				8F45499622C8D9C60077342D /* LeaguesViewModel.swift */,
+				8F12B6D822C8E0B600AD8B8A /* LeaguesRepository.swift */,
 				8F45499822C8D9DD0077342D /* LeaguesResponseModel.swift */,
+				8F12B6DC22C8E2C900AD8B8A /* LeaguesAssembler.swift */,
 			);
 			path = LeaguesViewController;
 			sourceTree = "<group>";
@@ -187,7 +196,6 @@
 				85309169C7AF6BFCB403107B /* Pods-Football LeaguesUITests.debug.xcconfig */,
 				BF8F2927C0402F67AF1633EE /* Pods-Football LeaguesUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -429,9 +437,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F12B6D922C8E0B600AD8B8A /* LeaguesRepository.swift in Sources */,
 				8F45496822C8D67E0077342D /* Football_Leagues.xcdatamodeld in Sources */,
 				8F45496022C8D67E0077342D /* AppDelegate.swift in Sources */,
 				8F45499722C8D9C60077342D /* LeaguesViewModel.swift in Sources */,
+				8F12B6DB22C8E25100AD8B8A /* ApplicationAssembly.swift in Sources */,
+				8F12B6DD22C8E2C900AD8B8A /* LeaguesAssembler.swift in Sources */,
 				8F45499522C8D9B70077342D /* LeaguesViewController.swift in Sources */,
 				8F45499922C8D9DD0077342D /* LeaguesResponseModel.swift in Sources */,
 			);
