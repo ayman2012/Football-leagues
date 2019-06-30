@@ -9,60 +9,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Football Leagues/LeaguesViewController/LeaguesAssembler.swift"
-            timestampString = "583591600.626646"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "assemble(container:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Football_Leagues.LeaguesAssembler.assemble(container: Swinject.Container) -&gt; ()"
-                  moduleName = "Football Leagues"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aymanfathy2011/Desktop/football-leagues/Football%20Leagues/Football%20Leagues/LeaguesViewController/LeaguesAssembler.swift"
-                  timestampString = "583591600.729524"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "47">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swinject.Resolver, Football_Leagues.LeaguesViewController) -&gt; () in Football_Leagues.LeaguesAssembler.assemble(container: Swinject.Container) -&gt; ()"
-                  moduleName = "Football Leagues"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aymanfathy2011/Desktop/football-leagues/Football%20Leagues/Football%20Leagues/LeaguesViewController/LeaguesAssembler.swift"
-                  timestampString = "583591600.731686"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "18"
-                  endingLineNumber = "18"
-                  offsetFromSymbolStart = "37">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Football Leagues/LeaguesViewController/LeaguesViewController.swift"
-            timestampString = "583591600.626727"
+            timestampString = "583606517.9565639"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
             landmarkName = "initialize(leaguesViewModel:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -89,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Football Leagues/LeaguesViewController/LeaguesAssembler.swift"
-            timestampString = "583591612.2857111"
+            filePath = "Football Leagues/LeaguesViewController/LeaguesRepository.swift"
+            timestampString = "583606517.956714"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "assembleCurrentChargesModule(container:)"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "getLeaguesObserable()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -105,14 +57,78 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Football Leagues/LeaguesViewController/LeaguesAssembler.swift"
-            timestampString = "583591613.763801"
+            filePath = "Football Leagues/LeaguesViewController/LeaguesRepository.swift"
+            timestampString = "583606517.956787"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "assembleCurrentChargesModule(container:)"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "getLeaguesObserable()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Football Leagues/Network/NetworkManager.swift"
+            timestampString = "583606517.95697"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "requestData(endPont:decodingType:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Football Leagues/Network/NetworkManager.swift"
+            timestampString = "583606517.957032"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "requestData(endPont:decodingType:completionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Football_Leagues.NetworkManager.requestData&lt;A where A: Swift.Decodable&gt;(endPont: Football_Leagues.APIClient, decodingType: A.Type, completionHandler: (Football_Leagues.NetworkManager.Result&lt;A&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Football Leagues"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aymanfathy2011/Desktop/football-leagues/Football%20Leagues/Football%20Leagues/Network/NetworkManager.swift"
+                  timestampString = "583606518.1146049"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "49">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Result.Result&lt;Moya.Response, Moya.MoyaError&gt;) -&gt; () in Football_Leagues.NetworkManager.requestData&lt;A where A: Swift.Decodable&gt;(endPont: Football_Leagues.APIClient, decodingType: A.Type, completionHandler: (Football_Leagues.NetworkManager.Result&lt;A&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Football Leagues"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aymanfathy2011/Desktop/football-leagues/Football%20Leagues/Football%20Leagues/Network/NetworkManager.swift"
+                  timestampString = "583606518.117335"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "340">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
