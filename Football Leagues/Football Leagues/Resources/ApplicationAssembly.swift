@@ -18,7 +18,7 @@ class ApplicationAssembly {
 
 //Inject dependency in Main Storyboard
 extension SwinjectStoryboard {
-    
+
     @objc class func setup() {
         defaultContainer = (ApplicationAssembly.assembler.resolver as? Container)!
     }

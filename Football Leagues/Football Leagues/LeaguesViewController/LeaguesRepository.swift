@@ -16,13 +16,21 @@ class LeaguesRepository {
                 switch result {
                 case .success(let model):
                     observer.onNext(model.competitions ?? [])
+                     DatabaseManager.shared.deleteLeaguesLocalData()
+                    DatabaseManager.shared.insertNewLeagues(leagues: model.competitions ?? [])
+
                 case .failure(let err):
-                    observer.onError(err)
+                    DatabaseManager.shared.getLocalLeagues { leagues in
+                        observer.onNext(leagues)
+                    }
+//                    observer.onError(err)
                     //TODO: - getlocal Data
                 }
-                observer.onCompleted()
             }
             return Disposables.create()
         }
     }
+//    private func getLoaclData()-> Competition{
+//        
+//    }
 }

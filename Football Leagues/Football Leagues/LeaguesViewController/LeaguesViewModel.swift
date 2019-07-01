@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 class LeaguesViewModel {
-    
+
     let loadingSubject = PublishRelay<Bool>()
     let title: String = ""
     var leaguesItems = BehaviorRelay<[Competition]>(value: [])
@@ -23,10 +23,9 @@ class LeaguesViewModel {
     }
     func configerBinding() {
         leaguesRepository.getLeaguesObserable().bind(to: leaguesItems)
-        leaguesItems.subscribe(onNext: { [weak self] (item) in
-            print(item)
+        leaguesItems.subscribe(onNext: { [weak self] (_) in
+            self?.loadingSubject.accept(true)
         }).disposed(by: disposeBag)
     }
 
 }
-

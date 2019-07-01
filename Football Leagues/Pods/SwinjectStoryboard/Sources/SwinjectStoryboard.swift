@@ -29,7 +29,7 @@ public class SwinjectStoryboard: _SwinjectStoryboardBase, SwinjectStoryboardProt
     /// - Implicit instantiation of UIWindow and its root view controller from "Main" storyboard.
     /// - Storyboard references to transit from a storyboard to another.
     public static var defaultContainer = Container()
-    
+
     // Boxing to workaround a runtime error [Xcode 7.1.1 and Xcode 7.2 beta 4]
     // If container property is Resolver type and a Resolver instance is assigned to the property,
     // the program crashes by EXC_BAD_ACCESS, which looks a bug of Swift.
@@ -68,8 +68,7 @@ public class SwinjectStoryboard: _SwinjectStoryboardBase, SwinjectStoryboardProt
     public class func create(
         name: String,
         bundle storyboardBundleOrNil: Bundle?,
-        container: Resolver) -> SwinjectStoryboard
-    {
+        container: Resolver) -> SwinjectStoryboard {
         // Use this factory method to create an instance because the initializer of UI/NSStoryboard is "not inherited".
         let storyboard = SwinjectStoryboard._create(name, bundle: storyboardBundleOrNil)
         storyboard.container = Box(container)
@@ -92,7 +91,7 @@ public class SwinjectStoryboard: _SwinjectStoryboardBase, SwinjectStoryboardProt
 
         return viewController
     }
-    
+
     private func injectDependency(to viewController: UIViewController) {
         guard !viewController.wasInjected else { return }
         defer { viewController.wasInjected = true }
@@ -105,7 +104,7 @@ public class SwinjectStoryboard: _SwinjectStoryboardBase, SwinjectStoryboardProt
         if let container = container.value as? _Resolver {
             let option = SwinjectStoryboardOption(controllerType: type(of: viewController))
             typealias FactoryType = ((Resolver, Container.Controller)) -> Any
-            let _ = container._resolve(name: registrationName, option: option) { (factory: FactoryType) in factory((self.container.value, viewController)) as Any } as Container.Controller?
+            _ = container._resolve(name: registrationName, option: option) { (factory: FactoryType) in factory((self.container.value, viewController)) as Any } as Container.Controller?
         } else {
             fatalError("A type conforming Resolver protocol must conform _Resolver protocol too.")
         }
@@ -120,7 +119,7 @@ public class SwinjectStoryboard: _SwinjectStoryboardBase, SwinjectStoryboardProt
             }
 #endif
     }
-    
+
 #elseif os(OSX)
     /// Creates the new instance of `SwinjectStoryboard`. This method is used instead of an initializer.
     ///
@@ -150,8 +149,7 @@ public class SwinjectStoryboard: _SwinjectStoryboardBase, SwinjectStoryboardProt
     public class func create(
         name: NSStoryboard.Name,
         bundle storyboardBundleOrNil: Bundle?,
-        container: Resolver) -> SwinjectStoryboard
-    {
+        container: Resolver) -> SwinjectStoryboard {
         // Use this factory method to create an instance because the initializer of UI/NSStoryboard is "not inherited".
         let storyboard = SwinjectStoryboard._create(name, bundle: storyboardBundleOrNil)
         storyboard.container = Box(container)
@@ -174,20 +172,20 @@ public class SwinjectStoryboard: _SwinjectStoryboardBase, SwinjectStoryboardProt
 
         return controller
     }
-    
+
     private func injectDependency(to controller: Container.Controller) {
         guard let controller = controller as? InjectionVerifiable, !controller.wasInjected else { return }
         defer { controller.wasInjected = true }
 
         let registrationName = (controller as? RegistrationNameAssociatable)?.swinjectRegistrationName
-        
+
         // Xcode 7.1 workaround for Issue #10. This workaround is not necessary with Xcode 7.
         // If a future update of Xcode fixes the problem, replace the resolution with the following code and fix storyboardInitCompleted too:
         // https://github.com/Swinject/Swinject/issues/10
         if let container = container.value as? _Resolver {
             let option = SwinjectStoryboardOption(controllerType: type(of: controller))
             typealias FactoryType = ((Resolver, Container.Controller)) -> Any
-            let _ = container._resolve(name: registrationName, option: option) { (factory: FactoryType) -> Any in factory((self.container.value, controller)) } as Container.Controller?
+            _ = container._resolve(name: registrationName, option: option) { (factory: FactoryType) -> Any in factory((self.container.value, controller)) } as Container.Controller?
         } else {
             fatalError("A type conforming Resolver protocol must conform _Resolver protocol too.")
         }

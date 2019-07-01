@@ -11,7 +11,7 @@ import Swinject
 import SwinjectStoryboard
 
 class LeaguesAssembler: Assembly {
-    
+
     func assemble(container: Container) {
         assembleCurrentChargesModule(container: container)
         container.storyboardInitCompleted(LeaguesViewController.self) { (r, c) in
@@ -20,10 +20,10 @@ class LeaguesAssembler: Assembly {
     }
 
     private func assembleCurrentChargesModule(container: Container) {
-        container.register(LeaguesRepository.self) { (resolver) in
+        container.register(LeaguesRepository.self) { (_) in
             LeaguesRepository()
         }
-        
+
         container.register(LeaguesViewModel.self) { (resolver) in
             LeaguesViewModel(repository: resolver.resolve(LeaguesRepository.self)!)
         }

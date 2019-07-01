@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="161.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xd8-sq-ipl">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xd8-sq-ipl">
                         <rect key="frame" x="20" y="31" width="100" height="100"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="100" id="0pE-Ff-8fx"/>
@@ -38,14 +38,14 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="13Q-Ht-28c">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="LeaguesViewCell" translatesAutoresizingMaskIntoConstraints="NO" id="13Q-Ht-28c">
                         <rect key="frame" x="139" y="70" width="35" height="35"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="13Q-Ht-28c" secondAttribute="height" multiplier="1:1" id="CU0-NP-TAW"/>
                             <constraint firstAttribute="height" constant="35" id="LBP-Ty-sGe"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gpg-eY-XYA">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gpg-eY-XYA">
                         <rect key="frame" x="265" y="70" width="35" height="35"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Gpg-eY-XYA" secondAttribute="height" multiplier="1:1" id="9I8-Ph-kY8"/>
@@ -63,7 +63,6 @@
                     <constraint firstItem="Gpg-eY-XYA" firstAttribute="bottom" secondItem="13Q-Ht-28c" secondAttribute="bottom" id="0UR-3e-7MT"/>
                     <constraint firstItem="wfo-gs-MxK" firstAttribute="top" secondItem="Xd8-sq-ipl" secondAttribute="top" id="4vg-lp-bGj"/>
                     <constraint firstAttribute="trailing" secondItem="HUC-Yi-pPT" secondAttribute="trailing" constant="20" id="5FZ-zf-34c"/>
-                    <constraint firstItem="HUC-Yi-pPT" firstAttribute="leading" relation="lessThanOrEqual" secondItem="IZD-fk-LLO" secondAttribute="trailing" constant="77" id="7K4-9a-eYt"/>
                     <constraint firstItem="HUC-Yi-pPT" firstAttribute="bottom" secondItem="IZD-fk-LLO" secondAttribute="bottom" id="AiT-XY-B5K"/>
                     <constraint firstItem="Xd8-sq-ipl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="BdO-O2-NgK"/>
                     <constraint firstItem="Xd8-sq-ipl" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="M8t-iP-yVx"/>
@@ -76,6 +75,10 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="leagueIcon" destination="Xd8-sq-ipl" id="1Ea-LL-orD"/>
+                <outlet property="leagueTitle" destination="wfo-gs-MxK" id="3SU-Ua-D2Z"/>
+            </connections>
             <point key="canvasLocation" x="-163.19999999999999" y="34.182908545727138"/>
         </tableViewCell>
     </objects>

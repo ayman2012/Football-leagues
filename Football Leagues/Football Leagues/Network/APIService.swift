@@ -19,12 +19,14 @@ enum Enviroment {
 
 //// 2:
 extension APIClient: TargetType {
-    
-    var headers: [String : String]? {
-        return  ["Content-Type" : "application/json"]
+    var apiToken: String {
+        return "2f19619607254006a6f6f26fc4b191fb"
     }
-   
-    var enviromentBaseUrl : String {
+    var headers: [String: String]? {
+        return  ["Content-Type": "application/json", "X-Auth-Token": apiToken]
+    }
+
+    var enviromentBaseUrl: String {
         switch NetworkManager.enviroment {
         case .production : return "https://api.football-data.org/v2"
         case .staging : return "https://api.football-data.org/v2"
@@ -49,7 +51,7 @@ extension APIClient: TargetType {
       // 9:
     var task: Task {
         var parameters = [String: Any]()
-        switch self  {
+        switch self {
         case .leagues:
             return .requestPlain
         }
@@ -77,6 +79,4 @@ extension APIClient: TargetType {
         return Data()
     }
 
-
 }
-

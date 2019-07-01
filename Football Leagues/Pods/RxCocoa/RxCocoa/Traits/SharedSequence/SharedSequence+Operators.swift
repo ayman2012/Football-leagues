@@ -10,7 +10,7 @@ import RxSwift
 
 // MARK: map
 extension SharedSequenceConvertibleType {
-    
+
     /**
     Projects each element of an observable sequence into a new form.
     
@@ -42,8 +42,8 @@ extension SharedSequenceConvertibleType {
 }
 
 // MARK: switchLatest
-extension SharedSequenceConvertibleType where E : SharedSequenceConvertibleType {
-    
+extension SharedSequenceConvertibleType where E: SharedSequenceConvertibleType {
+
     /**
     Transforms an observable sequence of observable sequences into an observable sequence
     producing values only from the most recent observable sequence.
@@ -125,7 +125,7 @@ extension SharedSequenceConvertibleType {
 
 // MARK: debug
 extension SharedSequenceConvertibleType {
-    
+
     /**
     Prints received events for all observers on standard output.
     
@@ -141,7 +141,7 @@ extension SharedSequenceConvertibleType {
 
 // MARK: distinctUntilChanged
 extension SharedSequenceConvertibleType where E: Equatable {
-    
+
     /**
     Returns an observable sequence that contains only distinct contiguous elements according to equality operator.
     
@@ -151,13 +151,13 @@ extension SharedSequenceConvertibleType where E: Equatable {
         -> SharedSequence<SharingStrategy, E> {
         let source = self.asObservable()
             .distinctUntilChanged({ $0 }, comparer: { ($0 == $1) })
-            
+
         return SharedSequence(source)
     }
 }
 
 extension SharedSequenceConvertibleType {
-    
+
     /**
     Returns an observable sequence that contains only distinct contiguous elements according to the `keySelector`.
     
@@ -169,7 +169,7 @@ extension SharedSequenceConvertibleType {
             .distinctUntilChanged(keySelector, comparer: { $0 == $1 })
         return SharedSequence(source)
     }
-   
+
     /**
     Returns an observable sequence that contains only distinct contiguous elements according to the `comparer`.
     
@@ -181,7 +181,7 @@ extension SharedSequenceConvertibleType {
             .distinctUntilChanged({ $0 }, comparer: comparer)
         return SharedSequence<SharingStrategy, E>(source)
     }
-    
+
     /**
     Returns an observable sequence that contains only distinct contiguous elements according to the keySelector and the comparer.
     
@@ -196,10 +196,9 @@ extension SharedSequenceConvertibleType {
     }
 }
 
-
 // MARK: flatMap
 extension SharedSequenceConvertibleType {
-    
+
     /**
     Projects each element of an observable sequence to an observable sequence and merges the resulting observable sequences into one observable sequence.
     
@@ -209,7 +208,7 @@ extension SharedSequenceConvertibleType {
     public func flatMap<Sharing, R>(_ selector: @escaping (E) -> SharedSequence<Sharing, R>) -> SharedSequence<Sharing, R> {
         let source = self.asObservable()
             .flatMap(selector)
-        
+
         return SharedSequence(source)
     }
 }
@@ -255,11 +254,11 @@ extension SharedSequenceConvertibleType {
         let source = Observable.merge(sources.map { $0.asObservable() })
         return SharedSequence<SharingStrategy, E>(source)
     }
-    
+
 }
 
 // MARK: merge
-extension SharedSequenceConvertibleType where E : SharedSequenceConvertibleType {
+extension SharedSequenceConvertibleType where E: SharedSequenceConvertibleType {
     /**
     Merges elements from all observable sequences in the given enumerable sequence into a single observable sequence.
     
@@ -271,7 +270,7 @@ extension SharedSequenceConvertibleType where E : SharedSequenceConvertibleType 
             .merge()
         return SharedSequence<E.SharingStrategy, E.E>(source)
     }
-    
+
     /**
     Merges elements from all inner observable sequences into a single observable sequence, limiting the number of concurrent subscriptions to inner sequences.
     
@@ -289,7 +288,7 @@ extension SharedSequenceConvertibleType where E : SharedSequenceConvertibleType 
 
 // MARK: throttle
 extension SharedSequenceConvertibleType {
-    
+
     /**
      Returns an Observable that emits the first and the latest item emitted by the source Observable during sequential time windows of a specified duration.
 
@@ -475,7 +474,7 @@ extension SharedSequenceConvertibleType {
 
 // MARK: startWith
 extension SharedSequenceConvertibleType {
-    
+
     /**
     Prepends a value to an observable sequence.
 

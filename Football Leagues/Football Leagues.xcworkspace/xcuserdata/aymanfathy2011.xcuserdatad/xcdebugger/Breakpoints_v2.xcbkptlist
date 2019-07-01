@@ -9,22 +9,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Football Leagues/LeaguesViewController/LeaguesViewController.swift"
-            timestampString = "583606517.9565639"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "initialize(leaguesViewModel:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Football Leagues/ApplicationAssembly.swift"
             timestampString = "583591600.626789"
             startingColumnNumber = "9223372036854775807"
@@ -41,94 +25,110 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Football Leagues/LeaguesViewController/LeaguesRepository.swift"
-            timestampString = "583606517.956714"
+            filePath = "Football Leagues/Network/DatabaseManager.swift"
+            timestampString = "583706613.5503531"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "getLeaguesObserable()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Football Leagues/LeaguesViewController/LeaguesRepository.swift"
-            timestampString = "583606517.956787"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "getLeaguesObserable()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Football Leagues/Network/NetworkManager.swift"
-            timestampString = "583606517.95697"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "requestData(endPont:decodingType:completionHandler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Football Leagues/Network/NetworkManager.swift"
-            timestampString = "583606517.957032"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "requestData(endPont:decodingType:completionHandler:)"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "insertNewLeagues(leagues:)"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Football_Leagues.NetworkManager.requestData&lt;A where A: Swift.Decodable&gt;(endPont: Football_Leagues.APIClient, decodingType: A.Type, completionHandler: (Football_Leagues.NetworkManager.Result&lt;A&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "Football_Leagues.DatabaseManager.createLeaguesTable() -&gt; ()"
                   moduleName = "Football Leagues"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aymanfathy2011/Desktop/football-leagues/Football%20Leagues/Football%20Leagues/Network/NetworkManager.swift"
-                  timestampString = "583606518.1146049"
+                  urlString = "file:///Users/aymanfathy2011/Desktop/football-leagues/Football%20Leagues/Football%20Leagues/Network/DatabaseManager.swift"
+                  timestampString = "583705082.620056"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "49">
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "22">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Result.Result&lt;Moya.Response, Moya.MoyaError&gt;) -&gt; () in Football_Leagues.NetworkManager.requestData&lt;A where A: Swift.Decodable&gt;(endPont: Football_Leagues.APIClient, decodingType: A.Type, completionHandler: (Football_Leagues.NetworkManager.Result&lt;A&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "closure #1 ((SQLiteSatusCode: Swift.Int32, affectedRowCount: Swift.Int, results: Swift.Optional&lt;Swift.Array&lt;Swift.Dictionary&lt;__C.NSString, __C.NSObject&gt;&gt;&gt;)) -&gt; () in Football_Leagues.DatabaseManager.createLeaguesTable() -&gt; ()"
                   moduleName = "Football Leagues"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aymanfathy2011/Desktop/football-leagues/Football%20Leagues/Football%20Leagues/Network/NetworkManager.swift"
-                  timestampString = "583606518.117335"
+                  urlString = "file:///Users/aymanfathy2011/Desktop/football-leagues/Football%20Leagues/Football%20Leagues/Network/DatabaseManager.swift"
+                  timestampString = "583705082.622331"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
-                  offsetFromSymbolStart = "340">
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "19">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Football Leagues/Network/DatabaseManager.swift"
+            timestampString = "583706613.550772"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "insertNewLeagues(leagues:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Football Leagues/LeaguesViewController/LeaguesRepository.swift"
+            timestampString = "583706613.551069"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "getLeaguesObserable()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Football Leagues/LeaguesViewController/LeaguesViewModel.swift"
+            timestampString = "583704999.4456021"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "configerBinding()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Football Leagues/LeaguesViewController/LeaguesRepository.swift"
+            timestampString = "583706613.551177"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "getLeaguesObserable()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

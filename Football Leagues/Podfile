@@ -10,6 +10,9 @@ pod 'RxCocoa'
 pod 'Swinject'
 pod 'SwinjectStoryboard'
 pod 'Moya/RxSwift'
+#pod 'SQLite.swift', '~> 0.11.5'
+pod 'SQLiteManager'
+
   target 'Football LeaguesTests' do
     inherit! :search_paths
     # Pods for testing
