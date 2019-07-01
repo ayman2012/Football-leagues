@@ -70,7 +70,7 @@ extension NSObject {
     fileprivate func getAssociatedBool(key: UnsafeRawPointer) -> Bool? {
         return (objc_getAssociatedObject(self, key) as? NSNumber)?.boolValue
     }
-    
+
     fileprivate func setAssociatedBool(_ bool: Bool, key: UnsafeRawPointer) {
         objc_setAssociatedObject(self, key, NSNumber(value: bool), objc_AssociationPolicy.OBJC_ASSOCIATION_COPY)
     }

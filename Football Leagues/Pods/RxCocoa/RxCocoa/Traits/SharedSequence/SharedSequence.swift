@@ -19,7 +19,7 @@ import RxSwift
 
     To find out more about units and how to use them, please visit `Documentation/Traits.md`.
 */
-public struct SharedSequence<S: SharingStrategyProtocol, Element> : SharedSequenceConvertibleType {
+public struct SharedSequence<S: SharingStrategyProtocol, Element>: SharedSequenceConvertibleType {
     public typealias E = Element
     public typealias SharingStrategy = S
 
@@ -82,7 +82,7 @@ public protocol SharingStrategyProtocol {
 /**
 A type that can be converted to `SharedSequence`.
 */
-public protocol SharedSequenceConvertibleType : ObservableConvertibleType {
+public protocol SharedSequenceConvertibleType: ObservableConvertibleType {
     associatedtype SharingStrategy: SharingStrategyProtocol
 
     /**
@@ -96,7 +96,6 @@ extension SharedSequenceConvertibleType {
         return self.asSharedSequence().asObservable()
     }
 }
-
 
 extension SharedSequence {
 
@@ -154,7 +153,7 @@ extension SharedSequence {
 }
 
 extension SharedSequence {
-    
+
     /**
     This method converts an array to an observable sequence.
      
@@ -166,7 +165,7 @@ extension SharedSequence {
         let source = Observable.from(array, scheduler: S.scheduler)
         return SharedSequence(raw: source)
     }
-    
+
     /**
      This method converts a sequence to an observable sequence.
      
@@ -178,7 +177,7 @@ extension SharedSequence {
         let source = Observable.from(sequence, scheduler: SharingStrategy.scheduler)
         return SharedSequence(raw: source)
     }
-    
+
     /**
      This method converts a optional to an observable sequence.
      
@@ -194,7 +193,7 @@ extension SharedSequence {
     }
 }
 
-extension SharedSequence where Element : RxAbstractInteger {
+extension SharedSequence where Element: RxAbstractInteger {
     /**
      Returns an observable sequence that produces a value after each period, using the specified scheduler to run timers and to send out observer messages.
 
@@ -226,4 +225,3 @@ extension SharedSequence where Element: RxAbstractInteger {
         return SharedSequence(Observable.timer(dueTime, period: period, scheduler: S.scheduler))
     }
 }
-

@@ -14,7 +14,6 @@
 // Instead, modify Resolver.erb and run `script/gencode` at the project root directory to generate the code.
 //
 
-
 public protocol Resolver {
     /// Retrieves the instance with the specified service type.
     ///
@@ -265,6 +264,5 @@ public protocol Resolver {
         _ serviceType: Service.Type,
         name: String?,
         arguments arg1: Arg1, _ arg2: Arg2, _ arg3: Arg3, _ arg4: Arg4, _ arg5: Arg5, _ arg6: Arg6, _ arg7: Arg7, _ arg8: Arg8, _ arg9: Arg9) -> Service?
-
 
 }

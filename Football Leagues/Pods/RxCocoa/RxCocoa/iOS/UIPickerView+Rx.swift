@@ -7,7 +7,7 @@
 //
 
 #if os(iOS)
-    
+
     import RxSwift
     import UIKit
 
@@ -18,7 +18,7 @@
         public var delegate: DelegateProxy<UIPickerView, UIPickerViewDelegate> {
             return RxPickerViewDelegateProxy.proxy(for: base)
         }
-        
+
         /// Installs delegate as forwarding delegate on `delegate`.
         /// Delegate won't be retained.
         ///
@@ -30,7 +30,7 @@
             -> Disposable {
                 return RxPickerViewDelegateProxy.installForwardDelegate(delegate, retainDelegate: false, onProxyForObject: self.base)
         }
-        
+
         /**
          Reactive wrapper for `dataSource`.
          
@@ -39,7 +39,7 @@
         public var dataSource: DelegateProxy<UIPickerView, UIPickerViewDataSource> {
             return RxPickerViewDataSourceProxy.proxy(for: base)
         }
-        
+
         /**
          Reactive wrapper for `delegate` message `pickerView:didSelectRow:inComponent:`.
          */
@@ -51,7 +51,7 @@
                 }
             return ControlEvent(events: source)
         }
-        
+
         /**
          Reactive wrapper for `delegate` message `pickerView:didSelectRow:inComponent:`.
          
@@ -77,10 +77,10 @@
 
                 return Observable.just(model)
             }
-            
+
             return ControlEvent(events: source)
         }
-        
+
         /**
          Binds sequences of elements to picker view rows.
          
@@ -103,17 +103,17 @@
                 .disposed(by: disposeBag)
          
          */
-        
+
         public func itemTitles<S: Sequence, O: ObservableType>
             (_ source: O)
             -> (_ titleForRow: @escaping (Int, S.Iterator.Element) -> String?)
-            -> Disposable where O.E == S  {
+            -> Disposable where O.E == S {
                 return { titleForRow in
                     let adapter = RxStringPickerViewAdapter<S>(titleForRow: titleForRow)
                     return self.items(adapter: adapter)(source)
                 }
         }
-        
+
         /**
          Binds sequences of elements to picker view rows.
          
@@ -140,13 +140,13 @@
         public func itemAttributedTitles<S: Sequence, O: ObservableType>
             (_ source: O)
             -> (_ attributedTitleForRow: @escaping (Int, S.Iterator.Element) -> NSAttributedString?)
-            -> Disposable where O.E == S  {
+            -> Disposable where O.E == S {
                 return { attributedTitleForRow in
                     let adapter = RxAttributedStringPickerViewAdapter<S>(attributedTitleForRow: attributedTitleForRow)
                     return self.items(adapter: adapter)(source)
                 }
         }
-        
+
         /**
          Binds sequences of elements to picker view rows.
          
@@ -179,13 +179,13 @@
         public func items<S: Sequence, O: ObservableType>
             (_ source: O)
             -> (_ viewForRow: @escaping (Int, S.Iterator.Element, UIView?) -> UIView)
-            -> Disposable where O.E == S  {
+            -> Disposable where O.E == S {
                 return { viewForRow in
                     let adapter = RxPickerViewAdapter<S>(viewForRow: viewForRow)
                     return self.items(adapter: adapter)(source)
                 }
         }
-        
+
         /**
          Binds sequences of elements to picker view rows using a custom reactive adapter used to perform the transformation.
          This method will retain the adapter for as long as the subscription isn't disposed (result `Disposable`
@@ -210,13 +210,13 @@
                     return Disposables.create(delegateSubscription, dataSourceSubscription)
                 }
         }
-        
+
         /**
          Synchronous helper method for retrieving a model at indexPath through a reactive data source.
          */
         public func model<T>(at indexPath: IndexPath) throws -> T {
             let dataSource: SectionedViewDataSourceType = castOrFatalError(self.dataSource.forwardToDelegate(), message: "This method only works in case one of the `rx.itemTitles, rx.itemAttributedTitles, items(_ source: O)` methods was used.")
-            
+
             return castOrFatalError(try dataSource.model(at: indexPath))
         }
     }

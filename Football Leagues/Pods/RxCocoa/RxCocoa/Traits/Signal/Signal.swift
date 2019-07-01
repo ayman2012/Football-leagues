@@ -29,9 +29,9 @@ import RxSwift
  */
 public typealias Signal<E> = SharedSequence<SignalSharingStrategy, E>
 
-public struct SignalSharingStrategy : SharingStrategyProtocol {
+public struct SignalSharingStrategy: SharingStrategyProtocol {
     public static var scheduler: SchedulerType { return SharingScheduler.make() }
-    
+
     public static func share<E>(_ source: Observable<E>) -> Observable<E> {
         return source.share(scope: .whileConnected)
     }

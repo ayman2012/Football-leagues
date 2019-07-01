@@ -10,6 +10,11 @@ PODS:
   - RxCocoa (4.5.0):
     - RxSwift (>= 4.4.2, ~> 4.4)
   - RxSwift (4.5.0)
+  - sqlite3 (3.28.0):
+    - sqlite3/common (= 3.28.0)
+  - sqlite3/common (3.28.0)
+  - SQLiteManager (0.2.7):
+    - sqlite3
   - Swinject (2.6.2)
   - SwinjectStoryboard (2.2.0):
     - Swinject (~> 2.6)
@@ -18,6 +23,7 @@ DEPENDENCIES:
   - Moya/RxSwift
   - RxCocoa
   - RxSwift
+  - SQLiteManager
   - Swinject
   - SwinjectStoryboard
 
@@ -28,6 +34,8 @@ SPEC REPOS:
     - Result
     - RxCocoa
     - RxSwift
+    - sqlite3
+    - SQLiteManager
     - Swinject
     - SwinjectStoryboard
 
@@ -37,9 +45,11 @@ SPEC CHECKSUMS:
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
+  sqlite3: 52491522eeafb647cc13be0b97f91657be276bf6
+  SQLiteManager: 61f056e42457db34a2550c1cee65b7fdf3118b55
   Swinject: cf7458774b1b00323080a9c67e47a1ee7f9d2af1
   SwinjectStoryboard: 32512ef16c2b0ff5b8f823b23539c4a50f6d3383
 
-PODFILE CHECKSUM: bd9dc72dd939481f7a20eab3f1b084537812c9b1
+PODFILE CHECKSUM: 0fcff1601e7a7275cd45af7f44faf7d754a2a9d1
 
 COCOAPODS: 1.6.1

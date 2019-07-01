@@ -6,11 +6,10 @@
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
 //
 
-
 import RxSwift
 
 extension ObservableType {
-    
+
     /**
     Creates new subscription and sends elements to observer.
     
@@ -58,7 +57,7 @@ extension ObservableType {
             }
         }
     }
-    
+
     /**
      Creates new subscription and sends elements to publish relay.
      
@@ -71,7 +70,7 @@ extension ObservableType {
     public func bind(to relay: PublishRelay<E?>) -> Disposable {
         return self.map { $0 as E? }.bind(to: relay)
     }
-    
+
     /**
      Creates new subscription and sends elements to behavior relay.
      
@@ -93,7 +92,7 @@ extension ObservableType {
             }
         }
     }
-    
+
     /**
      Creates new subscription and sends elements to behavior relay.
      
@@ -106,7 +105,7 @@ extension ObservableType {
     public func bind(to relay: BehaviorRelay<E?>) -> Disposable {
         return self.map { $0 as E? }.bind(to: relay)
     }
-    
+
     /**
     Subscribes to observable sequence using custom binder function.
     
@@ -132,8 +131,7 @@ extension ObservableType {
     public func bind<R1, R2>(to binder: (Self) -> (R1) -> R2, curriedArgument: R1) -> R2 {
          return binder(self)(curriedArgument)
     }
-    
-    
+
     /**
     Subscribes an element handler to an observable sequence. 
 
