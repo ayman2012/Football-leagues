@@ -10,11 +10,21 @@ import Foundation
 import UIKit
 import RxSwift
 import RxCocoa
+import Kingfisher
+
 class TeamsViewController: UIViewController, UITableViewDelegate {
     
+    @IBOutlet weak var ContainerView: UIView!
+    @IBOutlet weak var leagueIcon: UIImageView!
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     @IBOutlet weak var teamsTableView: UITableView!
-    private var teamsViewModel: TeamsViewModel!
+    
+    @IBOutlet weak var leagueTitle: UILabel!
+    @IBOutlet weak var leftSideIcon: UIImageView!
+    @IBOutlet weak var rightSideIcon: UIImageView!
+    @IBOutlet weak var leftSideText: UILabel!
+    @IBOutlet weak var rightSideText: UILabel!
+    var teamsViewModel: TeamsViewModel!
     private let disposeBag = DisposeBag()
     func initialize(teamsViewModel: TeamsViewModel) {
         self.teamsViewModel = teamsViewModel
@@ -24,35 +34,48 @@ class TeamsViewController: UIViewController, UITableViewDelegate {
         showLoadingView()
         setupTableView()
         configureBinding()
-        title = teamsViewModel.title
     }
     private func configureBinding() {
-        teamsViewModel.teamsItems
-            .bind(to: teamsTableView.rx.items(cellIdentifier: "\(LeaguesViewCell.self)", cellType: LeaguesViewCell.self)) {
-                _, leagueItem, cell in
-                cell.configerCell(model: leagueItem)
+        teamsViewModel.teamsItems.map{$0?.teams ?? []}
+            .bind(to: teamsTableView.rx.items(cellIdentifier: "\(TeamsTableViewCell.self)", cellType: TeamsTableViewCell.self)) {
+                _, team, cell in
+                cell.configerCell(team: team)
             }.disposed(by: disposeBag)
         
-        teamsViewModel.loadingSubject.subscribe({ [weak self] (_) in
-            self?.hideLoadingView()
+        teamsViewModel.teamsItems.subscribe(onNext: { [weak self] model in
+            self?.title = model?.competition?.name
+            self?.leagueTitle.text = model?.competition?.name
+            let url = URL.init(string:model?.competition?.emblemURL ?? "")
+            self?.leagueIcon.kf.setImage(with: url, placeholder: UIImage.init(named: "default"), options: nil, progressBlock: nil, completionHandler: nil)
+
         }).disposed(by: disposeBag)
+        
+        teamsViewModel.loadingSubject.subscribe(onNext: { [weak self] loading in
+            if loading {
+                self?.hideLoadingView()
+            }
+        }).disposed(by: disposeBag)
+       
     }
     private func setupTableView() {
         teamsTableView.estimatedRowHeight = 162
         registerCell()
     }
     private func registerCell() {
-        let cellNib = UINib(nibName: "\(LeaguesViewCell.self)", bundle: nil)
-        teamsTableView.register(cellNib, forCellReuseIdentifier: "\(LeaguesViewCell.self)")
+        let cellNib = UINib(nibName: "\(TeamsTableViewCell.self)", bundle: nil)
+        teamsTableView.register(cellNib, forCellReuseIdentifier: "\(TeamsTableViewCell.self)")
         teamsTableView.rx.setDelegate(self).disposed(by: self.disposeBag)
     }
     private func hideLoadingView() {
         self.indicatorView.stopAnimating()
-        teamsTableView.isHidden = false
+        ContainerView.isHidden = false
         
     }
     fileprivate func showLoadingView() {
         indicatorView.startAnimating()
-        teamsTableView.isHidden = true
+        ContainerView.isHidden = true
+    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+       return "Teams"
     }
 }

@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import RxSwift
 import RxCocoa
+import Swinject
+import SwinjectStoryboard
 
 class LeaguesViewController: UIViewController, UITableViewDelegate {
 
@@ -37,6 +39,18 @@ class LeaguesViewController: UIViewController, UITableViewDelegate {
         leaguesViewModel.loadingSubject.subscribe({ [weak self] (_) in
             self?.hideLoadingView()
         }).disposed(by: disposeBag)
+        leaguesTableView
+            .rx
+            .itemSelected
+            .bind {[weak self] index in
+                let id = 2000 //self?.leaguesViewModel.leaguesItems.value[index.row].id ?? 0
+                if let VC = SwinjectStoryboard.create(name: "Teams", bundle: nil).instantiateViewController(withIdentifier: "TeamsViewController") as? TeamsViewController {
+                    VC.teamsViewModel.configerBinding(Id: "\(id)")
+                    self?.navigationController?.pushViewController(VC, animated: true)
+                }
+               
+             }.disposed(by: disposeBag)
+        
     }
     private func setupTableView() {
        leaguesTableView.estimatedRowHeight = 162

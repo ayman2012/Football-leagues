@@ -78,6 +78,10 @@
             <connections>
                 <outlet property="leagueIcon" destination="Xd8-sq-ipl" id="1Ea-LL-orD"/>
                 <outlet property="leagueTitle" destination="wfo-gs-MxK" id="3SU-Ua-D2Z"/>
+                <outlet property="leftSideIcon" destination="13Q-Ht-28c" id="AFp-VN-s2w"/>
+                <outlet property="leftSideText" destination="IZD-fk-LLO" id="xNs-gk-IWi"/>
+                <outlet property="rightSideIcon" destination="Gpg-eY-XYA" id="7b5-CH-lMW"/>
+                <outlet property="rightSideText" destination="HUC-Yi-pPT" id="0Q0-2m-xI7"/>
             </connections>
             <point key="canvasLocation" x="-163.19999999999999" y="34.182908545727138"/>
         </tableViewCell>

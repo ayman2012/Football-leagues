@@ -11,19 +11,20 @@ import RxSwift
 
 class TeamsRepository {
     
-    func getLeaguesObserable() -> Observable<[Competition]> {
-        return Observable<[Competition]>.create { observer in
-            NetworkManager.shared.requestData(endPont: APIClient.leagues, decodingType: LeaguesResponseModel.self) { result in
+    func getLeaguesObserable(competitionId:String) -> Observable<TeamsResponseModel> {
+        return Observable<TeamsResponseModel>.create { observer in
+            NetworkManager.shared.requestData(endPont: APIClient.teams(id: competitionId), decodingType: TeamsResponseModel.self) { result in
                 switch result {
                 case .success(let model):
-                    observer.onNext(model.competitions ?? [])
+                    observer.onNext(model)
                     DatabaseManager.shared.deleteLeaguesLocalData()
-                    DatabaseManager.shared.insertNewLeagues(leagues: model.competitions ?? [])
+//                    DatabaseManager.shared.insertNewLeagues(leagues: model.competitions ?? [])
                     
                 case .failure(let err):
-                    DatabaseManager.shared.getLocalLeagues { leagues in
-                        observer.onNext(leagues)
-                    }
+                    break
+//                    DatabaseManager.shared.getLocalLeagues { leagues in
+//                        observer.onNext(leagues)
+//                    }
                 }
             }
             return Disposables.create()
