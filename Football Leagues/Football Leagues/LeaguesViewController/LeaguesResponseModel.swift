@@ -8,11 +8,11 @@
 
 import Foundation
 class LeaguesResponseModel: Codable {
-    let count: Int?
+    let count: Int
     let filters: Filters?
     let competitions: [Competition]?
 
-    init(count: Int?, filters: Filters?, competitions: [Competition]?) {
+    init(count: Int, filters: Filters?, competitions: [Competition]?) {
         self.count = count
         self.filters = filters
         self.competitions = competitions
