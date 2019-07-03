@@ -11,6 +11,8 @@ import Moya
 
 enum APIClient {
     case leagues
+    case teams(id:String)
+    case team(id:String)
 }
 enum Enviroment {
     case production
@@ -28,8 +30,8 @@ extension APIClient: TargetType {
 
     var enviromentBaseUrl: String {
         switch NetworkManager.enviroment {
-        case .production : return "https://api.football-data.org/v2"
-        case .staging : return "https://api.football-data.org/v2"
+        case .production : return "https://api.football-data.org/v2/competitions"
+        case .staging : return "https://api.football-data.org/v2/competitions"
         }
     }
 
@@ -45,15 +47,18 @@ extension APIClient: TargetType {
     // 4:
     var path: String {
         switch self {
-        case .leagues  : return "/competitions"
+        case .leagues: return ""
+        case .teams(let id): return "/\(id)/teams"
+        case .team(let id): return "/teams/\(id)"
         }
     }
       // 9:
     var task: Task {
         var parameters = [String: Any]()
         switch self {
-        case .leagues:
+        case .leagues ,.teams, .team:
             return .requestPlain
+        
         }
 
         return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
@@ -62,7 +67,7 @@ extension APIClient: TargetType {
     // 5:
     var method: Moya.Method {
         switch self {
-        case .leagues:
+        case .leagues, .teams, .team:
             return .get
         default:
             return .post
