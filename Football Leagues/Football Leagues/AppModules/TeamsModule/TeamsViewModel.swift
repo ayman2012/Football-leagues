@@ -12,7 +12,6 @@ import RxCocoa
 class TeamsViewModel {
     
     let loadingSubject = PublishRelay<Bool>()
-    let title: String = "Football Leagues"
     var teamsItems = BehaviorRelay<TeamsResponseModel?>(value:nil)
     var disposeBag = DisposeBag()
     private let teamsRepository: TeamsRepository!

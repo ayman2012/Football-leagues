@@ -11,6 +11,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import Kingfisher
+import SwinjectStoryboard
 
 class TeamsViewController: UIViewController, UITableViewDelegate {
     
@@ -55,6 +56,15 @@ class TeamsViewController: UIViewController, UITableViewDelegate {
                 self?.hideLoadingView()
             }
         }).disposed(by: disposeBag)
+        teamsTableView
+            .rx
+            .itemSelected
+            .bind {[weak self] index in
+                let id = "760" //self?.leaguesViewModel.leaguesItems.value[index.row].id ?? 0
+                let coordinator = TeamCoordinator.init(navigation: self?.navigationController ?? UINavigationController() , id: id)
+                coordinator.start()
+                
+            }.disposed(by: disposeBag)
        
     }
     private func setupTableView() {
@@ -74,8 +84,5 @@ class TeamsViewController: UIViewController, UITableViewDelegate {
     fileprivate func showLoadingView() {
         indicatorView.startAnimating()
         ContainerView.isHidden = true
-    }
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-       return "Teams"
     }
 }

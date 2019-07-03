@@ -17,7 +17,7 @@ class LeaguesRepository {
                 case .success(let model):
                     observer.onNext(model.competitions ?? [])
                      DatabaseManager.shared.deleteLeaguesLocalData()
-                    DatabaseManager.shared.insertNewLeagues(leagues: model.competitions ?? [])
+//                    DatabaseManager.shared.insertNewLeagues(leagues: model.competitions ?? [])
 
                 case .failure(let err):
                     DatabaseManager.shared.getLocalLeagues { leagues in

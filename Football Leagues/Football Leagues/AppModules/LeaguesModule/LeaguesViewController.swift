@@ -43,12 +43,9 @@ class LeaguesViewController: UIViewController, UITableViewDelegate {
             .rx
             .itemSelected
             .bind {[weak self] index in
-                let id = 2000 //self?.leaguesViewModel.leaguesItems.value[index.row].id ?? 0
-                if let VC = SwinjectStoryboard.create(name: "Teams", bundle: nil).instantiateViewController(withIdentifier: "TeamsViewController") as? TeamsViewController {
-                    VC.teamsViewModel.configerBinding(Id: "\(id)")
-                    self?.navigationController?.pushViewController(VC, animated: true)
-                }
-               
+                let id = "2000" //self?.leaguesViewModel.leaguesItems.value[index.row].id ?? 0
+                let coordinator = TeamsCoordinator.init(navigation: self?.navigationController ?? UINavigationController(), id: id)
+               coordinator.start()
              }.disposed(by: disposeBag)
         
     }

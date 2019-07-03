@@ -48,14 +48,15 @@ class Team: Codable {
     let email: String?
     let founded: Int?
     let clubColors, venue: String?
+    let imageData: Data?
     
     enum CodingKeys: String, CodingKey {
         case id, area, name, shortName, tla
         case crestURL = "crestUrl"
-        case address, phone, website, email, founded, clubColors, venue
+        case address, phone, website, email, founded, clubColors, venue, imageData
     }
     
-    init(id: Int?, area: Area?, name: String?, shortName: String?, tla: String?, crestURL: String?, address: String?, phone: String?, website: String?, email: String?, founded: Int?, clubColors: String?, venue: String?) {
+    init(id: Int?, area: Area?, name: String?, shortName: String?, tla: String?, crestURL: String?, address: String?, phone: String?, website: String?, email: String?, founded: Int?, clubColors: String?, venue: String?,imageData:Data?) {
         self.id = id
         self.area = area
         self.name = name
@@ -69,5 +70,6 @@ class Team: Codable {
         self.founded = founded
         self.clubColors = clubColors
         self.venue = venue
+        self.imageData = imageData
     }
 }
