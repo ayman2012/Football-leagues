@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="92.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZYe-8p-htx">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="ZYe-8p-htx">
                         <rect key="frame" x="20" y="20" width="80" height="52.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="52.5" id="MVB-ZN-Cu8"/>
@@ -50,4 +50,7 @@
             <point key="canvasLocation" x="137.59999999999999" y="175.86206896551727"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="default" width="1500" height="1500"/>
+    </resources>
 </document>

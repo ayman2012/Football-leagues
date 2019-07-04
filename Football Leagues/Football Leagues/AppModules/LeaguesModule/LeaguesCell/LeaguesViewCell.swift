@@ -25,6 +25,15 @@ class LeaguesViewCell: UITableViewCell {
     func configerCell(model: Competition) {
         leagueTitle.text = model.name
         leagueIcon.loadImage(model.emblemURL ?? "", placeHolder: UIImage.init(named: "default"))
+        rightSideIcon.loadImage(model.currentSeason?.winner?.crestURL ?? "", placeHolder: UIImage.init(named: "default"))
+        //Check if name empty from sql
+        if model.currentSeason?.winner?.name == "" {
+            rightSideText.text = "no winner yet"
+        } else {
+            rightSideText.text = model.currentSeason?.winner?.name ?? "no winner yet"
+
+        }
+        leftSideText.text = "available Seasons : \(model.numberOfAvailableSeasons ?? 0)"
     }
     override func prepareForReuse() {
         super.prepareForReuse()

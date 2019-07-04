@@ -17,6 +17,7 @@ class TeamMatchesViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var teamTitle: UILabel!
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     @IBOutlet weak var teamsMatchesTableView: UITableView!
+    @IBOutlet weak var nodataView: UIView!
 
     var teamsMatchesViewModel: TeamMatchesViewModel!
     private let disposeBag = DisposeBag()
@@ -36,12 +37,18 @@ class TeamMatchesViewController: UIViewController, UITableViewDelegate {
                 _, match, cell in
                 cell.configerCell(model: match)
             }.disposed(by: disposeBag)
-
-        teamsMatchesViewModel.teamsMatches.subscribe(onNext: { [weak self] _ in
-//            self?.title = model?.competition?.name
-//            self?.leagueTitle.text = model?.competition?.name
-//            let url = URL.init(string:model?.competition?.emblemURL ?? "")
-//            self?.leagueIcon.kf.setImage(with: url, placeholder: UIImage.init(named: "default"), options: nil, progressBlock: nil, completionHandler: nil)
+        teamsMatchesViewModel.teamsMatches.subscribe(onNext: { [weak self] model in
+            if model?.matches?.isEmpty ?? true {
+                self?.showNoDataView()
+            }else{
+                self?.HideNoDataView()
+            }
+        }).disposed(by: disposeBag)
+        teamsMatchesViewModel.teamsMatches.subscribe(onNext: { [weak self] model in
+            self?.teamTitle.text = self?.teamsMatchesViewModel.teamName ?? ""
+            if let teamImageURL = self?.teamsMatchesViewModel.teamImageURL {
+                self?.teamIcon.loadImage(teamImageURL, placeHolder: UIImage.init(named: "default"))
+            }
 
         }).disposed(by: disposeBag)
 
@@ -63,11 +70,19 @@ class TeamMatchesViewController: UIViewController, UITableViewDelegate {
     }
     private func hideLoadingView() {
         self.indicatorView.stopAnimating()
-//        ContainerView.isHidden = false
+        ContainerView.isHidden = false
 
     }
     fileprivate func showLoadingView() {
         indicatorView.startAnimating()
-//        ContainerView.isHidden = true
+        ContainerView.isHidden = true
+    }
+    fileprivate func showNoDataView() {
+        ContainerView.isHidden = true
+        nodataView.isHidden = false
+    }
+    fileprivate func HideNoDataView() {
+        ContainerView.isHidden = false
+        nodataView.isHidden = true
     }
 }

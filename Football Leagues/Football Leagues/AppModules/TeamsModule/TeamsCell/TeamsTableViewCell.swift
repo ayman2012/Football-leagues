@@ -15,12 +15,12 @@ class TeamsTableViewCell: UITableViewCell {
     @IBOutlet weak var teamNameLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        selectionStyle = .none
     }
     func configerCell(team: Team) {
         teamNameLabel.text = team.name
         let url = URL.init(string: team.crestURL ?? "")
-        teamIcon.kf.setImage(with: url, placeholder: UIImage.init(named: "default"), options: nil, progressBlock: nil, completionHandler: nil)
+        teamIcon.loadImage(team.crestURL ?? "", placeHolder: UIImage.init(named: "default"))
     }
 
 }

@@ -26,7 +26,7 @@ class DatabaseManager {
          LeaguesSQLManager.shared.getLocalLeagues(completion: completion)
     }
     func saveTeamsData(team: TeamsResponseModel, leagueid: Int ){
-        TeamsSQLManager.shared.deleteTeamsData(leagueid: leagueid)
+        TeamsSQLManager.shared.deleteTeamsData(leagueId: leagueid)
         TeamsSQLManager.shared.insertNewTeams(team: team, with: leagueid)
     }
     func getTeamsData(leagueid: Int, completion: @escaping(TeamsResponseModel) -> Void) {

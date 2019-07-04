@@ -27,7 +27,17 @@ class TeamMatchesViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func configerCell(model: Match) {
-
-    }
+        leftSideImage.loadImage(model.homeTeam?.crestURL ?? "", placeHolder: UIImage.init(named: "default"))
+        rightSideImage.loadImage(model.awayTeam?.crestURL ?? "", placeHolder: UIImage.init(named: "default"))
+        resultLabel.text = "\(model.score?.fullTime?.homeTeam)" + ":" + "\(model.score?.fullTime?.awayTeam)"
+        if model.status == "FINISHED" {
+            statusLabel.isHidden = true
+        }else {
+            statusLabel.text = model.status ?? ""
+        }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dataLabel.text = dateFormatter.string(from: model.utcDate ?? Date())
+         }
 
 }

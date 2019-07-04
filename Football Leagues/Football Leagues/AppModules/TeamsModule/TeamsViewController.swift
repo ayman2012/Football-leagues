@@ -19,7 +19,8 @@ class TeamsViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var leagueIcon: UIImageView!
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     @IBOutlet weak var teamsTableView: UITableView!
-
+    @IBOutlet weak var nodataView: UIView!
+    
     @IBOutlet weak var leagueTitle: UILabel!
     @IBOutlet weak var leftSideIcon: UIImageView!
     @IBOutlet weak var rightSideIcon: UIImageView!
@@ -42,15 +43,28 @@ class TeamsViewController: UIViewController, UITableViewDelegate {
                 _, team, cell in
                 cell.configerCell(team: team)
             }.disposed(by: disposeBag)
-
+        teamsViewModel.teamsItems.subscribe(onNext: { [weak self] model in
+            if model?.teams?.isEmpty ?? true {
+                self?.showNoDataView()
+            }else{
+                self?.HideNoDataView()
+            }
+        }).disposed(by: disposeBag)
         teamsViewModel.teamsItems.subscribe(onNext: { [weak self] model in
             self?.title = model?.competition?.name
             self?.leagueTitle.text = model?.competition?.name
-            let url = URL.init(string: model?.competition?.emblemURL ?? "")
-            self?.leagueIcon.kf.setImage(with: url, placeholder: UIImage.init(named: "default"), options: nil, progressBlock: nil, completionHandler: nil)
-            let winnerURL = URL.init(string: model?.competition?.currentSeason?.winner?.crestURL ?? "")
-            self?.rightSideIcon.kf.setImage(with: winnerURL, placeholder: UIImage.init(named: "default"), options: nil, progressBlock: nil, completionHandler: nil)
-
+            if let leagueURL =  model?.competition?.emblemURL {
+                self?.leagueIcon.loadImage(leagueURL, placeHolder: UIImage.init(named: "default"))
+            }
+            if let winnerURL =  model?.competition?.currentSeason?.winner?.crestURL {
+                self?.leagueIcon.loadImage(winnerURL, placeHolder: UIImage.init(named: "default"))
+            }
+            if model?.competition?.currentSeason?.winner?.name == "" {
+                self?.rightSideText.text = "no winner yet"
+            } else {
+                self?.rightSideText.text = model?.competition?.currentSeason?.winner?.name ?? "no winner yet"
+            }
+            self?.leftSideText.text = "available Seasons : \(model?.competition?.numberOfAvailableSeasons ?? 0)"
         }).disposed(by: disposeBag)
 
         teamsViewModel.loadingSubject.subscribe(onNext: { [weak self] loading in
@@ -61,9 +75,14 @@ class TeamsViewController: UIViewController, UITableViewDelegate {
         teamsTableView
             .rx
             .itemSelected
-            .bind {[weak self] _ in
-                let id = "760" //self?.leaguesViewModel.leaguesItems.value[index.row].id ?? 0
-                let coordinator = TeamCoordinator.init(navigation: self?.navigationController ?? UINavigationController(), teamsId: id)
+            .bind {[weak self] index in
+                let id = "\(self?.teamsViewModel.teamsItems.value?.teams?[index.row].id ?? 0)"
+                let teamName = self?.teamsViewModel.teamsItems.value?.teams?[index.row].name ?? ""
+                let teamImageURL = self?.teamsViewModel.teamsItems.value?.teams?[index.row].crestURL ?? ""
+                let coordinator = TeamCoordinator.init(navigation: self?.navigationController ?? UINavigationController(),
+                                                      teamsId: id,
+                                                      teamName: teamName,
+                                                      teamImageURL: teamImageURL)
                 coordinator.start()
 
             }.disposed(by: disposeBag)
@@ -86,5 +105,13 @@ class TeamsViewController: UIViewController, UITableViewDelegate {
     fileprivate func showLoadingView() {
         indicatorView.startAnimating()
         ContainerView.isHidden = true
+    }
+    fileprivate func showNoDataView() {
+        ContainerView.isHidden = true
+        nodataView.isHidden = false
+    }
+    fileprivate func HideNoDataView() {
+        ContainerView.isHidden = false
+        nodataView.isHidden = true
     }
 }

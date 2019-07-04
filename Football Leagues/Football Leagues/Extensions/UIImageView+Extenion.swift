@@ -14,7 +14,7 @@ private let tasks: NSMapTable<UIImageView, URLSessionTask> = .weakToWeakObjects(
     extension UIImageView {
         
         func loadImage(_ URLString: String, placeHolder: UIImage?) {
-            self.image = nil
+            self.image = placeHolder
             ImagesSqlManager.shared.getImageData(imageURL: URLString) { [weak self] imageData in
                 if imageData != nil  {
                     self?.image = UIImage.init(data:imageData!)

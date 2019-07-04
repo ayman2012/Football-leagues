@@ -19,14 +19,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="358" height="138.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rU9-0T-3bf">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="rU9-0T-3bf">
                         <rect key="frame" x="36" y="33" width="74" height="73"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="73" id="RbE-zB-JFY"/>
                             <constraint firstAttribute="width" constant="74" id="sbU-N3-RGY"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lj6-NU-5Z3">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="Lj6-NU-5Z3">
                         <rect key="frame" x="264" y="33" width="74" height="73"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="74" id="md2-h7-qee"/>
@@ -80,4 +80,7 @@
             <point key="canvasLocation" x="-153.59999999999999" y="51.724137931034484"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="default" width="1500" height="1500"/>
+    </resources>
 </document>
