@@ -12,7 +12,9 @@ import SwinjectStoryboard
 
 class ApplicationAssembly {
     class var assembler: Assembler {
-        return Assembler([LeaguesAssembler(),TeamsAssembler()])
+        return Assembler([LeaguesAssembler(),
+                          TeamsAssembler(),
+                          TeamMatchesAssembler()])
     }
 }
 

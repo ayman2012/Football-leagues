@@ -7,17 +7,16 @@
 //
 
 import UIKit
-import Kingfisher
 class LeaguesViewCell: UITableViewCell {
 
     @IBOutlet weak var leagueIcon: UIImageView!
     @IBOutlet weak var leagueTitle: UILabel!
-    
+
     @IBOutlet weak var leftSideIcon: UIImageView!
     @IBOutlet weak var rightSideIcon: UIImageView!
     @IBOutlet weak var leftSideText: UILabel!
     @IBOutlet weak var rightSideText: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
@@ -25,12 +24,19 @@ class LeaguesViewCell: UITableViewCell {
     }
     func configerCell(model: Competition) {
         leagueTitle.text = model.name
-        if let image = model.imageData{
-            leagueIcon.image = UIImage.init(data: image )
+        leagueIcon.loadImage(model.emblemURL ?? "", placeHolder: UIImage.init(named: "default"))
+        rightSideIcon.loadImage(model.currentSeason?.winner?.crestURL ?? "", placeHolder: UIImage.init(named: "default"))
+        //Check if name empty from sql
+        if model.currentSeason?.winner?.name == "" {
+            rightSideText.text = "no winner yet"
         } else {
-            let url = URL.init(string:model.emblemURL ?? "")
-            leagueIcon.kf.setImage(with: url, placeholder: UIImage.init(named: "default"), options: nil, progressBlock: nil, completionHandler: nil)
-        }
-    }
+            rightSideText.text = model.currentSeason?.winner?.name ?? "no winner yet"
 
+        }
+        leftSideText.text = "available Seasons : \(model.numberOfAvailableSeasons ?? 0)"
+    }
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        leagueIcon.cancelImageLoad()
+    }
 }

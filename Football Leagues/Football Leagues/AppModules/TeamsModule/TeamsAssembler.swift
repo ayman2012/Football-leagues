@@ -11,19 +11,19 @@ import Swinject
 import SwinjectStoryboard
 
 class TeamsAssembler: Assembly {
-    
+
     func assemble(container: Container) {
-        assembleCurrentChargesModule(container: container)
+        assembleTeamsModule(container: container)
         container.storyboardInitCompleted(TeamsViewController.self) { (r, c) in
             c.initialize(teamsViewModel: r.resolve(TeamsViewModel.self)!)
         }
     }
-    
-    private func assembleCurrentChargesModule(container: Container) {
+
+    private func assembleTeamsModule(container: Container) {
         container.register(TeamsRepository.self) { (_) in
             TeamsRepository()
         }
-        
+
         container.register(TeamsViewModel.self) { (resolver) in
             TeamsViewModel(repository: resolver.resolve(TeamsRepository.self)!)
         }

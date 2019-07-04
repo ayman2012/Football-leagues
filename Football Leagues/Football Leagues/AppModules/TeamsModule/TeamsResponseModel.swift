@@ -13,7 +13,7 @@ class TeamsResponseModel: Codable {
     let competition: Competition?
     let season: Season?
     let teams: [Team]?
-    
+
     init(count: Int, filters: Filters?, competition: Competition?, season: Season?, teams: [Team]?) {
         self.count = count
         self.filters = filters
@@ -28,7 +28,7 @@ class Season: Codable {
     let startDate, endDate: String?
     let currentMatchday: Int?
     let winner: Winner?
-    
+
     init(id: Int?, startDate: String?, endDate: String?, currentMatchday: Int?, winner: Winner?) {
         self.id = id
         self.startDate = startDate
@@ -48,13 +48,13 @@ class Team: Codable {
     let email: String?
     let founded: Int?
     let clubColors, venue: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case id, area, name, shortName, tla
         case crestURL = "crestUrl"
         case address, phone, website, email, founded, clubColors, venue
     }
-    
+
     init(id: Int?, area: Area?, name: String?, shortName: String?, tla: String?, crestURL: String?, address: String?, phone: String?, website: String?, email: String?, founded: Int?, clubColors: String?, venue: String?) {
         self.id = id
         self.area = area

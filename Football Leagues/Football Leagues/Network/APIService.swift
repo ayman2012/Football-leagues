@@ -30,8 +30,8 @@ extension APIClient: TargetType {
 
     var enviromentBaseUrl: String {
         switch NetworkManager.enviroment {
-        case .production : return "https://api.football-data.org/v2/competitions"
-        case .staging : return "https://api.football-data.org/v2/competitions"
+        case .production : return "https://api.football-data.org/v2/"
+        case .staging : return "https://api.football-data.org/v2/"
         }
     }
 
@@ -47,18 +47,18 @@ extension APIClient: TargetType {
     // 4:
     var path: String {
         switch self {
-        case .leagues: return ""
-        case .teams(let id): return "/\(id)/teams"
-        case .team(let id): return "/teams/\(id)"
+        case .leagues: return "competitions"
+        case .teams(let id): return "competitions/\(id)/teams"
+        case .team(let id): return "/teams/\(id)/matches"
         }
     }
       // 9:
     var task: Task {
         var parameters = [String: Any]()
         switch self {
-        case .leagues ,.teams, .team:
+        case .leagues, .teams, .team:
             return .requestPlain
-        
+
         }
 
         return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)

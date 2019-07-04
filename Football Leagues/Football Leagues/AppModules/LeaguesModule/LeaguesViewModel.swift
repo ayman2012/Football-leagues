@@ -17,12 +17,12 @@ class LeaguesViewModel {
     var leaguesItems = BehaviorRelay<[Competition]>(value: [])
     var disposeBag = DisposeBag()
     private let leaguesRepository: LeaguesRepository!
-    
+
     init(repository: LeaguesRepository) {
         self.leaguesRepository = repository
         configerBinding()
     }
-    
+
     func configerBinding() {
         leaguesRepository.getLeaguesObserable().bind(to: leaguesItems)
         leaguesItems.subscribe(onNext: { [weak self] (_) in
