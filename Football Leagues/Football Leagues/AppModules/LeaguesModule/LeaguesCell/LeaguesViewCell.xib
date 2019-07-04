@@ -38,7 +38,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="LeaguesViewCell" translatesAutoresizingMaskIntoConstraints="NO" id="13Q-Ht-28c">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="LeaguesViewCell" image="soccer" translatesAutoresizingMaskIntoConstraints="NO" id="13Q-Ht-28c">
                         <rect key="frame" x="139" y="70" width="35" height="35"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="13Q-Ht-28c" secondAttribute="height" multiplier="1:1" id="CU0-NP-TAW"/>
@@ -86,4 +86,7 @@
             <point key="canvasLocation" x="-163.19999999999999" y="34.182908545727138"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="soccer" width="432" height="437"/>
+    </resources>
 </document>

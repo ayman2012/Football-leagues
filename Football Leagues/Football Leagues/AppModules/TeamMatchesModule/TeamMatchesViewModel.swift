@@ -12,15 +12,15 @@ import RxCocoa
 
 class TeamMatchesViewModel {
     let loadingSubject = PublishRelay<Bool>()
-    var teamsMatches = BehaviorRelay<TeamMatchesResponseModel?>(value:nil)
+    var teamsMatches = BehaviorRelay<TeamMatchesResponseModel?>(value: nil)
     var disposeBag = DisposeBag()
     private let teamsMatchesRepository: TeamMatchesRepository!
-    
+
     init(repository: TeamMatchesRepository) {
         self.teamsMatchesRepository = repository
     }
-    func configerBinding(Id:String) {
-        teamsMatchesRepository.getLeaguesObserable(competitionId:Id).bind(to: teamsMatches)
+    func configerBinding(Id: String) {
+        teamsMatchesRepository.getLeaguesObserable(competitionId: Id).bind(to: teamsMatches)
         teamsMatches.subscribe(onNext: { [weak self] (_) in
             self?.loadingSubject.accept(true)
         }).disposed(by: disposeBag)

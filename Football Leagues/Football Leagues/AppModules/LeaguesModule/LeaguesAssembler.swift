@@ -13,13 +13,13 @@ import SwinjectStoryboard
 class LeaguesAssembler: Assembly {
 
     func assemble(container: Container) {
-        assembleCurrentChargesModule(container: container)
+        assembleLeaguesModule(container: container)
         container.storyboardInitCompleted(LeaguesViewController.self) { (r, c) in
             c.initialize(leaguesViewModel: r.resolve(LeaguesViewModel.self)!)
         }
     }
 
-    private func assembleCurrentChargesModule(container: Container) {
+    private func assembleLeaguesModule(container: Container) {
         container.register(LeaguesRepository.self) { (_) in
             LeaguesRepository()
         }

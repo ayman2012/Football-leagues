@@ -11,15 +11,15 @@ import UIKit
 import SwinjectStoryboard
 
 class TeamsCoordinator: Coordinator {
-    var id: String?
+    var leagueId: Int?
     var navigation: UINavigationController?
-    init(navigation: UINavigationController ,id: String) {
-        self.id = id
+    init(navigation: UINavigationController, leagueId: Int) {
+        self.leagueId = leagueId
         self.navigation = navigation
     }
     func start() {
         if let teamsVC = SwinjectStoryboard.create(name: "Teams", bundle: nil).instantiateViewController(withIdentifier: "TeamsViewController") as? TeamsViewController {
-            teamsVC.teamsViewModel.configerBinding(Id: "\(id)")
+            teamsVC.teamsViewModel.configerBinding(Id: leagueId ?? 0)
             navigation?.pushViewController(teamsVC, animated: true)
         }
     }

@@ -22,9 +22,9 @@ public typealias SQLiteQueryResult = (SQLiteSatusCode: Int32, affectedRowCount: 
 
 public typealias SQLiteBatchQueryResult = (timeTaken: Double, results: [SQLiteQueryResult])
 
-public typealias SuccessClosure = (_ result: SQLiteQueryResult)->Void
-public typealias BatchSuccessClosure = (_ result: SQLiteBatchQueryResult)->Void
-public typealias ErrorClosure = (_ error: NSError)->Void
+public typealias SuccessClosure = (_ result: SQLiteQueryResult) -> Void
+public typealias BatchSuccessClosure = (_ result: SQLiteBatchQueryResult) -> Void
+public typealias ErrorClosure = (_ error: NSError) -> Void
 
 public enum TransactionCommand: String {
 	case begin = "BEGIN TRANSACTION"

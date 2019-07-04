@@ -10,13 +10,12 @@ import UIKit
 
 class TeamMatchesViewCell: UITableViewCell {
 
-    
     @IBOutlet weak var leftSideImage: UIImageView!
     @IBOutlet weak var rightSideImage: UIImageView!
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var dataLabel: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -27,9 +26,8 @@ class TeamMatchesViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func configerCell(model:Match) {
-        
+    func configerCell(model: Match) {
+
     }
-    
-    
+
 }

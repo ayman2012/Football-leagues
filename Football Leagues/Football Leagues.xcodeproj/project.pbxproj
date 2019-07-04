@@ -28,6 +28,10 @@
 		8F45499922C8D9DD0077342D /* LeaguesResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F45499822C8D9DD0077342D /* LeaguesResponseModel.swift */; };
 		8F5173AD22CD095F003C85DC /* TeamCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5173AC22CD095F003C85DC /* TeamCoordinator.swift */; };
 		8F8221B322CA802A004708B6 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8221B222CA802A004708B6 /* DatabaseManager.swift */; };
+		8FD21E7822CE5BB900BEAA79 /* TeamsSQLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD21E7722CE5BB900BEAA79 /* TeamsSQLManager.swift */; };
+		8FD21E7A22CE5BD700BEAA79 /* LeaguesSQLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD21E7922CE5BD700BEAA79 /* LeaguesSQLManager.swift */; };
+		8FD21E7D22CE6F1000BEAA79 /* UIImageView+Extenion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD21E7C22CE6F1000BEAA79 /* UIImageView+Extenion.swift */; };
+		8FD21E7F22CE6FEB00BEAA79 /* ImagesSqlManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD21E7E22CE6FEB00BEAA79 /* ImagesSqlManager.swift */; };
 		8FF9418822CB5EA600014CAB /* Teams.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FF9418722CB5EA600014CAB /* Teams.storyboard */; };
 		8FF9418A22CB5EC600014CAB /* TeamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9418922CB5EC600014CAB /* TeamsViewController.swift */; };
 		8FF9418C22CB5EDB00014CAB /* TeamsResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9418B22CB5EDB00014CAB /* TeamsResponseModel.swift */; };
@@ -110,6 +114,10 @@
 		8F8221B222CA802A004708B6 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		8FA9270E22CA7287004F7BF1 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		8FA9270F22CA7287004F7BF1 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		8FD21E7722CE5BB900BEAA79 /* TeamsSQLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsSQLManager.swift; sourceTree = "<group>"; };
+		8FD21E7922CE5BD700BEAA79 /* LeaguesSQLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesSQLManager.swift; sourceTree = "<group>"; };
+		8FD21E7C22CE6F1000BEAA79 /* UIImageView+Extenion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extenion.swift"; sourceTree = "<group>"; };
+		8FD21E7E22CE6FEB00BEAA79 /* ImagesSqlManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesSqlManager.swift; sourceTree = "<group>"; };
 		8FF9418722CB5EA600014CAB /* Teams.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Teams.storyboard; sourceTree = "<group>"; };
 		8FF9418922CB5EC600014CAB /* TeamsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsViewController.swift; sourceTree = "<group>"; };
 		8FF9418B22CB5EDB00014CAB /* TeamsResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsResponseModel.swift; sourceTree = "<group>"; };
@@ -182,6 +190,9 @@
 				8F323F0A22C903E30094C563 /* NetworkManager.swift */,
 				8F12B6DE22C8EEB900AD8B8A /* APIService.swift */,
 				8F8221B222CA802A004708B6 /* DatabaseManager.swift */,
+				8FD21E7922CE5BD700BEAA79 /* LeaguesSQLManager.swift */,
+				8FD21E7722CE5BB900BEAA79 /* TeamsSQLManager.swift */,
+				8FD21E7E22CE6FEB00BEAA79 /* ImagesSqlManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -220,6 +231,7 @@
 		8F45495E22C8D67E0077342D /* Football Leagues */ = {
 			isa = PBXGroup;
 			children = (
+				8FD21E7B22CE6EDA00BEAA79 /* Extensions */,
 				8FF9419C22CC0C8000014CAB /* AppDelegate */,
 				8F323F0C22C907D20094C563 /* Network */,
 				8FF9419B22CC0C3600014CAB /* AppModules */,
@@ -271,6 +283,14 @@
 				8F323F0D22C921820094C563 /* LeaguesCell */,
 			);
 			path = LeaguesModule;
+			sourceTree = "<group>";
+		};
+		8FD21E7B22CE6EDA00BEAA79 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8FD21E7C22CE6F1000BEAA79 /* UIImageView+Extenion.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		8FF9418622CB5E2800014CAB /* TeamsModule */ = {
@@ -365,6 +385,7 @@
 				8F45495A22C8D67E0077342D /* Resources */,
 				2437B07E77734AC29A2ACFE3 /* [CP] Embed Pods Frameworks */,
 				8FA927CD22CA7589004F7BF1 /* Embed Frameworks */,
+				8FE5D41622CE02E300D47C6C /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -573,6 +594,25 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8FE5D41622CE02E300D47C6C /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "
+";
+		};
 		DDDDC464F3FF7DA65B27B5A6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -609,6 +649,7 @@
 				8F45496822C8D67E0077342D /* Football_Leagues.xcdatamodeld in Sources */,
 				8FF941AE22CD009C00014CAB /* LeaguesCoordinator.swift in Sources */,
 				8FF941A222CC0CFA00014CAB /* TeamMatchesRepository.swift in Sources */,
+				8FD21E7D22CE6F1000BEAA79 /* UIImageView+Extenion.swift in Sources */,
 				8FF9418A22CB5EC600014CAB /* TeamsViewController.swift in Sources */,
 				8F323F0B22C903E30094C563 /* NetworkManager.swift in Sources */,
 				8FF9419222CB5F1200014CAB /* TeamsAssembler.swift in Sources */,
@@ -618,7 +659,10 @@
 				8F45499722C8D9C60077342D /* LeaguesViewModel.swift in Sources */,
 				8FF9419A22CBF0E800014CAB /* TeamMatchesResponseModel.swift in Sources */,
 				8FF9418E22CB5EE900014CAB /* TeamsViewModel.swift in Sources */,
+				8FD21E7F22CE6FEB00BEAA79 /* ImagesSqlManager.swift in Sources */,
 				8F12B6DB22C8E25100AD8B8A /* ApplicationAssembly.swift in Sources */,
+				8FD21E7822CE5BB900BEAA79 /* TeamsSQLManager.swift in Sources */,
+				8FD21E7A22CE5BD700BEAA79 /* LeaguesSQLManager.swift in Sources */,
 				8FF9419022CB5EFF00014CAB /* TeamsRepository.swift in Sources */,
 				8F12B6DD22C8E2C900AD8B8A /* LeaguesAssembler.swift in Sources */,
 				8F45499522C8D9B70077342D /* LeaguesViewController.swift in Sources */,

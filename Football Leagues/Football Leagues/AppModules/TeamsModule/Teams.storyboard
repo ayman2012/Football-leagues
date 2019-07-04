@@ -47,7 +47,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="LeaguesViewCell" translatesAutoresizingMaskIntoConstraints="NO" id="fur-ZP-Igd">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="LeaguesViewCell" image="soccer" translatesAutoresizingMaskIntoConstraints="NO" id="fur-ZP-Igd">
                                                 <rect key="frame" x="139" y="59" width="35" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="fur-ZP-Igd" secondAttribute="height" multiplier="1:1" id="o1y-yk-GFS"/>
@@ -173,4 +173,7 @@
             <point key="canvasLocation" x="-178.40000000000001" y="141.67916041979012"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="soccer" width="432" height="437"/>
+    </resources>
 </document>

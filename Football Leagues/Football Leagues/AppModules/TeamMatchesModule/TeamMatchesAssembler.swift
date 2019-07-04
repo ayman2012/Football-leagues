@@ -17,7 +17,7 @@ class TeamMatchesAssembler: Assembly {
             c.initialize(teamsMatchesViewModel: r.resolve(TeamMatchesViewModel.self)!)
         }
     }
-    
+
     private func assembleTeamMatchesModule(container: Container) {
         container.register(TeamMatchesRepository.self) { (_) in
             TeamMatchesRepository()

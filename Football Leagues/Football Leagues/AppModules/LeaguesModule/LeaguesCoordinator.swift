@@ -14,16 +14,15 @@ protocol Coordinator: class {
 }
 class LeaguesCoordinator: Coordinator {
     var window: UIWindow
-    var coordinators = [String:Coordinator]()
+    var coordinators = [String: Coordinator]()
     init(window: UIWindow) {
         self.window = window
         window.makeKeyAndVisible()
     }
-    
+
     func start() {
         if let LeaguesVC = SwinjectStoryboard.create(name: "Leagues", bundle: nil).instantiateViewController(withIdentifier: "LeaguesViewController") as? LeaguesViewController {
             window.rootViewController = UINavigationController.init(rootViewController: LeaguesVC)
         }
     }
 }
-

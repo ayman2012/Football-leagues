@@ -56,9 +56,9 @@ extension APIClient: TargetType {
     var task: Task {
         var parameters = [String: Any]()
         switch self {
-        case .leagues ,.teams, .team:
+        case .leagues, .teams, .team:
             return .requestPlain
-        
+
         }
 
         return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)

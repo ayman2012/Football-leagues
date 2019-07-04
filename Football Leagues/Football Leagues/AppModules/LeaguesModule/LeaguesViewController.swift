@@ -42,12 +42,12 @@ class LeaguesViewController: UIViewController, UITableViewDelegate {
         leaguesTableView
             .rx
             .itemSelected
-            .bind {[weak self] index in
-                let id = "2000" //self?.leaguesViewModel.leaguesItems.value[index.row].id ?? 0
-                let coordinator = TeamsCoordinator.init(navigation: self?.navigationController ?? UINavigationController(), id: id)
+            .bind {[weak self] _ in
+                let id = 2000 //self?.leaguesViewModel.leaguesItems.value[index.row].id ?? 0
+                let coordinator = TeamsCoordinator.init(navigation: self?.navigationController ?? UINavigationController(), leagueId: id)
                coordinator.start()
              }.disposed(by: disposeBag)
-        
+
     }
     private func setupTableView() {
        leaguesTableView.estimatedRowHeight = 162

@@ -11,17 +11,16 @@ import Kingfisher
 
 class TeamsTableViewCell: UITableViewCell {
 
-    
     @IBOutlet weak var teamIcon: UIImageView!
     @IBOutlet weak var teamNameLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-    func configerCell(team:Team){
+    func configerCell(team: Team) {
         teamNameLabel.text = team.name
-        let url = URL.init(string:team.crestURL ?? "")
+        let url = URL.init(string: team.crestURL ?? "")
         teamIcon.kf.setImage(with: url, placeholder: UIImage.init(named: "default"), options: nil, progressBlock: nil, completionHandler: nil)
     }
-    
+
 }

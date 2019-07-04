@@ -29,14 +29,13 @@ class Competition: Codable {
     let plan: Plan?
     let currentSeason: CurrentSeason?
     let numberOfAvailableSeasons: Int?
-    let imageData: Data?
     enum CodingKeys: String, CodingKey {
-        case id, area, name, code, imageData
+        case id, area, name, code
         case emblemURL = "emblemUrl"
         case plan, currentSeason, numberOfAvailableSeasons
     }
 
-    init(id: Int?, area: Area?, name: String?, code: String?, emblemURL: String?, plan: Plan?, currentSeason: CurrentSeason?, numberOfAvailableSeasons: Int?, imageData: Data?) {
+    init(id: Int?, area: Area?, name: String?, code: String?, emblemURL: String?, plan: Plan?, currentSeason: CurrentSeason?, numberOfAvailableSeasons: Int?) {
         self.id = id
         self.area = area
         self.name = name
@@ -45,7 +44,6 @@ class Competition: Codable {
         self.plan = plan
         self.currentSeason = currentSeason
         self.numberOfAvailableSeasons = numberOfAvailableSeasons
-        self.imageData = imageData
     }
 }
 
