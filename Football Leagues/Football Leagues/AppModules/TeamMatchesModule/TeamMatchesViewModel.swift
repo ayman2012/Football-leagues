@@ -21,7 +21,7 @@ class TeamMatchesViewModel {
     init(repository: TeamMatchesRepository) {
         self.teamsMatchesRepository = repository
     }
-    func configerBinding(Id: String, teamName:String, teamImageURL:String) {
+    func configerBinding(Id: Int, teamName:String, teamImageURL:String) {
          self.teamName = teamName
         self.teamImageURL = teamImageURL
         teamsMatchesRepository.getLeaguesObserable(competitionId: Id).bind(to: teamsMatches)

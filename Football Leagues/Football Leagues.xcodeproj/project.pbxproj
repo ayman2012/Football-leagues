@@ -191,8 +191,8 @@
 			children = (
 				8FD21E7922CE5BD700BEAA79 /* LeaguesSQLManager.swift */,
 				8FD21E7722CE5BB900BEAA79 /* TeamsSQLManager.swift */,
-				8FD21E7E22CE6FEB00BEAA79 /* ImagesSqlManager.swift */,
 				8F05EC8C22CE903000C0462D /* MatchesSQLManager.swift */,
+				8FD21E7E22CE6FEB00BEAA79 /* ImagesSqlManager.swift */,
 			);
 			path = SQLManagers;
 			sourceTree = "<group>";

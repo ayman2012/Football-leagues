@@ -76,7 +76,7 @@ class TeamsViewController: UIViewController, UITableViewDelegate {
             .rx
             .itemSelected
             .bind {[weak self] index in
-                let id = "\(self?.teamsViewModel.teamsItems.value?.teams?[index.row].id ?? 0)"
+                let id = self?.teamsViewModel.teamsItems.value?.teams?[index.row].id ?? 0
                 let teamName = self?.teamsViewModel.teamsItems.value?.teams?[index.row].name ?? ""
                 let teamImageURL = self?.teamsViewModel.teamsItems.value?.teams?[index.row].crestURL ?? ""
                 let coordinator = TeamCoordinator.init(navigation: self?.navigationController ?? UINavigationController(),

@@ -19,9 +19,10 @@ class ImagesSqlManager {
     
     private func createDB() {
         database = try? SQLitePool.manager().initialize(database: "football leagues", withExtension: "sqlite3", createIfNotExist: true)
+       createImageTable()
     }
     
-    private func createLeaguesTable() {
+    private func createImageTable() {
         database.query("CREATE TABLE IF NOT EXISTS Images (imageURL TEXT PRIMARY KEY, ImageData Data)", successClosure: { _ in
             print("Done")
         }) { err in
@@ -30,14 +31,15 @@ class ImagesSqlManager {
     }
     
     func insertNewImage(imageURL:String, imagedata:Data) {
-        createLeaguesTable()
+         if  database != nil {
             _ = try! database.bindQuery("INSERT INTO 'Images' (imageURL, ImageData) VALUES (?,?)",
                                         bindValues: [sqlStr(imageURL),
                                                      sqlData(imagedata)])
         }
+    }
     
     func getImageData(imageURL:String,completion: @escaping(Data?) -> Void) {
-        createDB()
+        if  database != nil {
         let q1 = "SELECT * FROM CompetionTeams WHERE imageURL = \(imageURL)"
         database.query([q1], successClosure: { (batchResult) in
             print("Time taken to proces", batchResult.timeTaken)
@@ -50,6 +52,7 @@ class ImagesSqlManager {
         }, errorClosure: { (e) in
             print(e)
         })
+    }
     }
 }
 
