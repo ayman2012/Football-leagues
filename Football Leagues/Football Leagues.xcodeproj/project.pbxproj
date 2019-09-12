@@ -189,6 +189,7 @@
 		8F05EC8E22CEA17400C0462D /* SQLManagers */ = {
 			isa = PBXGroup;
 			children = (
+				8F8221B222CA802A004708B6 /* DatabaseManager.swift */,
 				8FD21E7922CE5BD700BEAA79 /* LeaguesSQLManager.swift */,
 				8FD21E7722CE5BB900BEAA79 /* TeamsSQLManager.swift */,
 				8F05EC8C22CE903000C0462D /* MatchesSQLManager.swift */,
@@ -202,7 +203,6 @@
 			children = (
 				8F323F0A22C903E30094C563 /* NetworkManager.swift */,
 				8F12B6DE22C8EEB900AD8B8A /* APIService.swift */,
-				8F8221B222CA802A004708B6 /* DatabaseManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";

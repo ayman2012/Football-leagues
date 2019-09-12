@@ -14,7 +14,7 @@ protocol Coordinator: class {
 }
 class LeaguesCoordinator: Coordinator {
     var window: UIWindow
-    var coordinators = [String: Coordinator]()
+//    var coordinators = [String: Coordinator]()
     init(window: UIWindow) {
         self.window = window
         window.makeKeyAndVisible()

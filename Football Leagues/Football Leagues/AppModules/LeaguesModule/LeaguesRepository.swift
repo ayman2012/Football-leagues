@@ -19,9 +19,7 @@ class LeaguesRepository {
                 switch result {
                 case .success(let model):
                     observer.onNext(model.competitions ?? [])
-
                     DatabaseManager.shared.saveLeaguesData(leagues: model.competitions ?? [])
-
                 case .failure(_):
                     DatabaseManager.shared.getLeaguesData{ leagues in
                         observer.onNext(leagues)

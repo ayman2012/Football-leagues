@@ -24,7 +24,7 @@ class LeaguesViewModel {
     }
 
     func configerBinding() {
-        leaguesRepository.getLeaguesObserable().bind(to: leaguesItems)
+        leaguesRepository.getLeaguesObserable().bind(to: leaguesItems).disposed(by: disposeBag)
         leaguesItems.subscribe(onNext: { [weak self] (_) in
             self?.loadingSubject.accept(true)
         }).disposed(by: disposeBag)

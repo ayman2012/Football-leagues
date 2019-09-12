@@ -83,5 +83,4 @@ extension APIClient: TargetType {
     var sampleData: Data {
         return Data()
     }
-
 }

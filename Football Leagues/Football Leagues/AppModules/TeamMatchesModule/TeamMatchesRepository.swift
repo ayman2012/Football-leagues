@@ -10,6 +10,7 @@ import Foundation
 import RxSwift
 
 class TeamMatchesRepository {
+    
     func getLeaguesObserable(competitionId: Int) -> Observable<TeamMatchesResponseModel> {
         return Observable<TeamMatchesResponseModel>.create { observer in
             NetworkManager.shared.requestData(endPont: APIClient.team(id: "\(competitionId)"), decodingType: TeamMatchesResponseModel.self) { result in
